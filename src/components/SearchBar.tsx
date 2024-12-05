@@ -41,7 +41,7 @@ export function SearchBar() {
           <DialogDescription>Veja o clima em quase qualquer lugar do mundo.</DialogDescription>
           <Input placeholder="Nome da cidade" value={searchedCity} onChange={(e) => setSearchedCity(e.target.value.trimStart())} />
         </DialogHeader>
-        <ScrollArea className="max-h-44 min-h-44 mt-4">
+        <ScrollArea className="max-h-48 mt-4">
           <div className="flex flex-col gap-3 items-center justify-center">
             {searchedCity === "" && !searchedCityResult?.length ? (
               <FontAwesomeIcon icon={faEarthAmericas} className="size-28 text-zinc-300" />
