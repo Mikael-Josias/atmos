@@ -5,6 +5,7 @@ import { locationContext } from "@/contexts/locationContext"
 
 export default function LocationBar() {
   const city = useContext(locationContext)
+
   return (
     <div className="bg-white rounded-full px-6 py-3 flex gap-2 items-center">
       <FontAwesomeIcon icon={faMapPin} className="text-zinc-600 text-sm" />
