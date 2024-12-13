@@ -49,6 +49,7 @@ export interface IWeatherAPIResponse {
     relative_humidity_2m: number[]
     rain: number[]
     wind_speed_10m: number[]
+    precipitation_probability: number[]
   }
   daily_units: {
     time: string
@@ -87,6 +88,16 @@ export async function getCurrentWeather({ latitude, longitude }: IWeatherRequest
     const weather = await axiosWeatherAPI.get<IWeatherAPIResponse>(`v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,precipitation,rain,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max,precipitation_sum,rain_sum,precipitation_hours,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max&past_days=${FORECAST_PAST_DAYS}&forecast_days=${FORECAST_DAYS}`)
 
     return weather.data
+  } catch (error) {
+    throw new Error("Error while loading weather.")
+  }
+}
+
+export async function getCurrentHourlyWeather({ latitude, longitude }: IWeatherRequestProps) {
+  try {
+    const hourlyWeather = await axiosWeatherAPI.get<IWeatherAPIResponse>(`v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m,precipitation_probability,precipitation,wind_speed_10m&forecast_days=1`)
+
+    return hourlyWeather.data
   } catch (error) {
     throw new Error("Error while loading weather.")
   }
