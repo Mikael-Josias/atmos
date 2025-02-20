@@ -5,8 +5,10 @@ import { Locate } from "lucide-react"
 import { MouseEvent } from "react"
 import { getReverseGeocoding } from "../services/LocationAPI"
 import { useLocationContext } from "../contexts/LocationContext"
+import { useToast } from "@/hooks/use-toast"
 
 export default function SideBar() {
+  const { toast } = useToast()
   const { location, setLocation } = useLocationContext()
 
   function getLocation(e: MouseEvent) {
@@ -20,7 +22,7 @@ export default function SideBar() {
         lat: position.coords.latitude,
         lon: position.coords.longitude,
       })
-    })
+    }, () => { toast({ title: "Sorry! We coundn't find you.", description: "Please, verify if location access is denied on this site. Or search for your city on our location box." }) })
   }
 
   return (
