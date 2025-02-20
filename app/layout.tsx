@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Inconsolata, Inter } from "next/font/google"
+import { Inconsolata, Inter } from "next/font/google"
 import "./globals.css"
 
 const geistSans = Inconsolata({
