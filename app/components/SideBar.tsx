@@ -18,11 +18,10 @@ export default function SideBar() {
 
   useEffect(() => {
     const timeoutSearch = setTimeout(async () => {
-      if (`${location.city}, ${location.state || location.country}` === locationInputValue) return
+      if (locationInputValue.includes(",")) return
       setLoadingLocationList(true)
       const res = await getGeocoding(locationInputValue)
       setLocationList(res)
-      console.log(res)
       const loading = () => setLoadingLocationList(false)
       loading()
     }, 500)
