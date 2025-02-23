@@ -9,6 +9,7 @@ export type Weather = {
     precipitation: string;
     weather_code: string;
     wind_speed_10m: string;
+    apparent_temperature: string;
   };
   current: {
     time: string;
@@ -18,6 +19,7 @@ export type Weather = {
     precipitation: number;
     weather_code: number;
     wind_speed_10m: number;
+    apparent_temperature: number;
   };
   hourly_units: {
     time: string;
@@ -51,7 +53,7 @@ export async function getTodayWeather({
   try {
     const result = (
       await fetch(
-        `${process.env.NEXT_PUBLIC_WEATHER_URL}/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=America%2FSao_Paulo&forecast_days=1`,
+        `${process.env.NEXT_PUBLIC_WEATHER_URL}/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&hourly=temperature_2m,precipitation&daily=temperature_2m_max,temperature_2m_min&timezone=America%2FSao_Paulo&forecast_days=1`,
       )
     ).json();
     return result;
