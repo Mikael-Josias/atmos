@@ -58,6 +58,6 @@ export async function getTodayWeather({
     ).json();
     return result;
   } catch (error) {
-    throw new Error("Error trying to fetch today weather data", error);
+    throw new Error("Error trying to fetch today weather data: " + error);
   }
 }
