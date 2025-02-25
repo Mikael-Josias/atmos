@@ -32,25 +32,26 @@ export function WeatherContextProvider({
 
   useEffect(() => {
     setLoadingWeather(true);
-    getWeather();
-  }, [location]);
-
-  async function getWeather() {
-    try {
-      const res = await getTodayWeather({
-        lat: location.lat,
-        lon: location.lon,
-      });
-      setWeather(res);
-    } catch (error) {
-      toast({
-        title: "Error!",
-        description:
-          "I'm sorry, it seens we cannot get the weather of this location",
-      });
+    async function getWeather() {
+      try {
+        const res = await getTodayWeather({
+          lat: location.lat,
+          lon: location.lon,
+        });
+        setWeather(res);
+      } catch (error) {
+        toast({
+          title: "Error!",
+          description:
+            "I'm sorry, it seens we cannot get the weather of this location",
+        });
+        console.log(error);
+      }
+      setLoadingWeather(false);
     }
-    setLoadingWeather(false);
-  }
+
+    getWeather();
+  }, [location, toast]);
 
   return (
     <WeatherContext.Provider
