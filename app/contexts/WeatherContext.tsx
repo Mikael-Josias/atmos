@@ -7,13 +7,13 @@ import {
   useEffect,
   useState,
 } from "react";
-import { getTodayWeather, Weather } from "../services/WeatherAPI";
+import { getWeather, IWeatherFormattedData } from "../services/WeatherAPI";
 import { useLocationContext } from "./LocationContext";
 import { useToast } from "@/hooks/use-toast";
 
 interface WeatherContextProps {
-  weather: Weather | null;
-  setWeather: Dispatch<SetStateAction<Weather | null>>;
+  weather: IWeatherFormattedData | null;
+  setWeather: Dispatch<SetStateAction<IWeatherFormattedData | null>>;
   loadingWeather: boolean;
   setLoadingWeather: Dispatch<SetStateAction<boolean>>;
 }
@@ -27,30 +27,32 @@ export function WeatherContextProvider({
 }) {
   const { toast } = useToast();
   const { location } = useLocationContext();
-  const [weather, setWeather] = useState<Weather | null>(null);
+  const [weather, setWeather] = useState<IWeatherFormattedData | null>(null);
   const [loadingWeather, setLoadingWeather] = useState(true);
 
   useEffect(() => {
     setLoadingWeather(true);
-    async function getWeather() {
-      try {
-        const res = await getTodayWeather({
-          lat: location.lat,
-          lon: location.lon,
-        });
+    async function getWeatherData() {
+      const res = await getWeather({
+        lat: location.lat,
+        lon: location.lon,
+        days: 1,
+      });
+
+      if (typeof res === "object" && res instanceof Object) {
         setWeather(res);
-      } catch (error) {
-        toast({
-          title: "Error!",
-          description:
-            "I'm sorry, it seens we cannot get the weather of this location",
-        });
-        console.log(error);
+        setLoadingWeather(false);
+        return;
       }
+
+      toast({
+        title: "Error!",
+        description: res,
+      });
       setLoadingWeather(false);
     }
 
-    getWeather();
+    getWeatherData();
   }, [location, toast]);
 
   return (
