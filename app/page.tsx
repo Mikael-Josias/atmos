@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <LocationContextProvider>
       <WeatherContextProvider>
-        <main className="flex gap-6 p-12 w-screen h-screen">
+        <main className="flex flex-col md:flex-row w-screen h-screen">
           <SideBar />
           <WeatherDashboard />
           <Toaster />

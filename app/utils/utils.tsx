@@ -1,47 +1,193 @@
-import {
-  Cloud,
-  CloudFog,
-  CloudHail,
-  CloudLightning,
-  CloudRain,
-  CloudRainWind,
-  CloudSnow,
-  Cloudy,
-  Rainbow,
-  Snowflake,
-} from "lucide-react";
+import Sun from "../../public/weather-icons/sun.png";
+import Cloud from "../../public/weather-icons/cloud.png";
+import Cloudy from "../../public/weather-icons/cloudy.png";
+import CloudSun from "../../public/weather-icons/cloud-sun.png";
+import Blizzard from "../../public/weather-icons/blizzard.png";
+import Drizzle from "../../public/weather-icons/drizzle.png";
+import Snowfall from "../../public/weather-icons/snow.png";
+import Storm from "../../public/weather-icons/storm.png";
+import StormHeavy from "../../public/weather-icons/storm-heavy.png";
+import Fog from "../../public/weather-icons/fog.png";
+import Rain from "../../public/weather-icons/rain.png";
+import RainHeavy from "../../public/weather-icons/rain-heavy.png";
+import Image from "next/image";
 
-const ICON_SIZE = 128;
+const ICON_SIZE = 112;
 
 export const WEATHER_ICONS = new Map()
-  .set(0, <Rainbow size={ICON_SIZE} />)
-  .set(1, <Rainbow size={ICON_SIZE} />)
-  .set(2, <Cloud size={ICON_SIZE} />)
-  .set(3, <Cloudy size={ICON_SIZE} />)
-  .set(45, <CloudFog size={ICON_SIZE} />)
-  .set(48, <CloudFog size={ICON_SIZE} />)
-  .set(51, <CloudHail size={ICON_SIZE} />)
-  .set(53, <CloudHail size={ICON_SIZE} />)
-  .set(55, <CloudHail size={ICON_SIZE} />)
-  .set(56, <CloudHail size={ICON_SIZE} />)
-  .set(57, <CloudHail size={ICON_SIZE} />)
-  .set(61, <CloudRain size={ICON_SIZE} />)
-  .set(63, <CloudRain size={ICON_SIZE} />)
-  .set(65, <CloudRain size={ICON_SIZE} />)
-  .set(66, <CloudRain size={ICON_SIZE} />)
-  .set(67, <CloudRain size={ICON_SIZE} />)
-  .set(71, <Snowflake size={ICON_SIZE} />)
-  .set(73, <Snowflake size={ICON_SIZE} />)
-  .set(75, <Snowflake size={ICON_SIZE} />)
-  .set(77, <Snowflake size={ICON_SIZE} />)
-  .set(80, <CloudRainWind size={ICON_SIZE} />)
-  .set(81, <CloudRainWind size={ICON_SIZE} />)
-  .set(82, <CloudRainWind size={ICON_SIZE} />)
-  .set(85, <CloudSnow size={ICON_SIZE} />)
-  .set(86, <CloudSnow size={ICON_SIZE} />)
-  .set(95, <CloudLightning size={ICON_SIZE} />)
-  .set(96, <CloudLightning size={ICON_SIZE} />)
-  .set(99, <CloudLightning size={ICON_SIZE} />);
+  .set(
+    0,
+    <Image src={Sun} alt="yellow sun" className="w-20 md:w-[112px] h-auto" />,
+  )
+  .set(
+    1,
+    <Image
+      src={CloudSun}
+      alt="gray cloud with yellow sun"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    2,
+    <Image src={Cloud} alt="gray cloud" className="w-20 md:w-[112px] h-auto" />,
+  )
+  .set(
+    3,
+    <Image
+      src={Cloudy}
+      alt="gray cloud"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    45,
+    <Image src={Fog} alt="gray fog" className="w-20 md:w-[112px] h-auto" />,
+  )
+  .set(
+    48,
+    <Image src={Fog} alt="gray fog" className="w-20 md:w-[112px] h-auto" />,
+  )
+  .set(
+    51,
+    <Image
+      src={Drizzle}
+      alt="light drizzle"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    53,
+    <Image
+      src={Drizzle}
+      alt="light drizzle"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    55,
+    <Image
+      src={Drizzle}
+      alt="light drizzle"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    56,
+    <Image
+      src={Drizzle}
+      alt="light drizzle"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    57,
+    <Image
+      src={Drizzle}
+      alt="light drizzle"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(61, <Image src={Rain} alt="rain" className="w-20 md:w-[112px] h-auto" />)
+  .set(63, <Image src={Rain} alt="rain" className="w-20 md:w-[112px] h-auto" />)
+  .set(65, <Image src={Rain} alt="rain" className="w-20 md:w-[112px] h-auto" />)
+  .set(66, <Image src={Rain} alt="rain" className="w-20 md:w-[112px] h-auto" />)
+  .set(67, <Image src={Rain} alt="rain" className="w-20 md:w-[112px] h-auto" />)
+  .set(
+    71,
+    <Image
+      src={Snowfall}
+      alt="snow fall"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    73,
+    <Image
+      src={Snowfall}
+      alt="snow fall"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    75,
+    <Image
+      src={Snowfall}
+      alt="snow fall"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    77,
+    <Image
+      src={Blizzard}
+      alt="snow shower"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    80,
+    <Image
+      src={RainHeavy}
+      alt="heavy rain"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    81,
+    <Image
+      src={RainHeavy}
+      alt="heavy rain"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    82,
+    <Image
+      src={RainHeavy}
+      alt="heavy rain"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    85,
+    <Image
+      src={Blizzard}
+      alt="snow shower"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    86,
+    <Image
+      src={Blizzard}
+      alt="snow shower"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    95,
+    <Image
+      src={Storm}
+      alt="storm with lightning"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    96,
+    <Image
+      src={StormHeavy}
+      alt="storm with lightning"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  )
+  .set(
+    99,
+    <Image
+      src={StormHeavy}
+      alt="storm with lightning"
+      className="w-20 md:w-[112px] h-auto"
+    />,
+  );
 
 export const WEATHER_CODES = new Map()
   .set(0, "Clear Sky")
