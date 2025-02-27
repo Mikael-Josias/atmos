@@ -12,8 +12,6 @@ import Rain from "../../public/weather-icons/rain.png";
 import RainHeavy from "../../public/weather-icons/rain-heavy.png";
 import Image from "next/image";
 
-const ICON_SIZE = 112;
-
 export const WEATHER_ICONS = new Map()
   .set(
     0,
