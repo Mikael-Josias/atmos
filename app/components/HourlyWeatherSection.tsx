@@ -5,7 +5,7 @@ import ChartWrapper from "./ChartWrapper";
 export default function HourlyWeatherSection() {
   const { weather, loadingWeather } = useWeatherContext();
   return (
-    <section className="p-6 lg:p-12 bg-white rounded-xl shadow">
+    <section className="p-6 lg:p-12 bg-white dark:bg-gray-600 rounded-xl shadow">
       {loadingWeather ? (
         <div className="w-full h-44 bg-gray-200 animate-pulse rounded-xl"></div>
       ) : (

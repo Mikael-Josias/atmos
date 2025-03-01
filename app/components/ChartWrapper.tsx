@@ -23,7 +23,7 @@ export default function ChartWrapper({
 }: IChartContainer) {
   return (
     <div className="flex flex-col w-full gap-6 lg:gap-6">
-      <span className="text-sm w-full lg:text-xl font-bold text-cement_600">
+      <span className="text-sm w-full lg:text-xl font-bold text-cement_600 dark:text-gray-100">
         {title}
       </span>
       <ChartContainer config={chartConfig} className="w-full">

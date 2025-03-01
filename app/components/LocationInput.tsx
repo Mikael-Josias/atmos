@@ -94,15 +94,15 @@ export default function LocationInput() {
     <div className="px-6">
       <Label
         htmlFor="locationInput"
-        className="text-sm font-medium text-cement_500"
+        className="text-sm font-medium text-cement_500 dark:text-white"
       >
         Location
       </Label>
-      <div className="flex items-center justify-between bg-gray-100 pl-3 pr-3 rounded-full my-2">
+      <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-700 pl-3 pr-3 rounded-full my-2">
         {!loadingLocation ? (
           <Input
             id="locationInput"
-            className="bg-transparent text-sm border-none focus-visible:ring-transparent focus-visible:ring-offset-transparent text-cement_400 focus:select-text w-60"
+            className="bg-transparent text-sm border-none focus-visible:ring-transparent focus-visible:ring-offset-transparent text-cement_400 dark:text-gray-300 focus:select-text w-60"
             placeholder="Loading location..."
             value={locationInputValue}
             onChange={(e) => {
@@ -114,12 +114,17 @@ export default function LocationInput() {
           />
         ) : (
           <div className=" h-10 w-60 pl-3 flex items-center gap-2">
-            <Loader2 size={18} className="text-cement_400 animate-spin" />
-            <span className="text-sm text-cement_400">Getting location...</span>
+            <Loader2
+              size={18}
+              className="text-cement_400 dark:text-gray-300 animate-spin"
+            />
+            <span className="text-sm text-cement_400 dark:text-gray-300">
+              Getting location...
+            </span>
           </div>
         )}
         <button
-          className="hover:bg-cement_400 h-min w-min p-1 rounded-full text-cement_400 hover:text-white transition-colors"
+          className="hover:bg-cement_400 dark:hover:bg-gray-700 h-min w-min p-1 rounded-full text-cement_400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-colors"
           onClick={(e) => getLocation(e)}
           disabled={disabledGetLocationButton}
         >
@@ -137,7 +142,7 @@ export default function LocationInput() {
                     {locationList.results.map((l, i) => (
                       <li
                         key={i}
-                        className="flex gap-2 items-center justify-start bg-gray-100 py-3 px-2 rounded-md hover:bg-black/10 cursor-pointer"
+                        className="flex gap-2 items-center justify-start bg-gray-100 dark:bg-gray-700 py-3 px-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 cursor-pointer"
                         onClick={(e) => {
                           selectLocation(e, l);
                         }}
@@ -149,9 +154,9 @@ export default function LocationInput() {
                           height={0}
                           className="w-6 h-auto"
                         />
-                        <span className="text-cement_500 text-sm">
+                        <span className="text-cement_500 dark:text-gray-100 text-sm">
                           {l.name}
-                          <span className="text-cement_400 text-sm">
+                          <span className="text-cement_400 dark:text-gray-300 text-sm">
                             {", " + (l.admin1 || l.admin2 || l.country)}
                           </span>
                         </span>
@@ -162,7 +167,7 @@ export default function LocationInput() {
                   <>
                     {locationList?.generationtime_ms && (
                       <div className=" h-10 w-60 flex items-center gap-2">
-                        <span className="text-sm text-cement_400">
+                        <span className="text-sm text-cement_400 dark:text-gray-300">
                           No location found
                         </span>
                       </div>
@@ -173,7 +178,7 @@ export default function LocationInput() {
             ) : (
               <div className=" h-10 w-60 flex items-center gap-2">
                 <Loader2 size={18} className="text-cement_400 animate-spin" />
-                <span className="text-sm text-cement_400">
+                <span className="text-sm text-cement_400  dark:text-gray-300">
                   Getting location...
                 </span>
               </div>
