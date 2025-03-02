@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Loader2, Locate } from "lucide-react";
 import Image from "next/image";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function LocationInput() {
   const { toast } = useToast();
@@ -91,7 +92,7 @@ export default function LocationInput() {
   }
 
   return (
-    <div className="px-6">
+    <div className="px-6 overflow-hidden">
       <Label
         htmlFor="locationInput"
         className="text-sm font-medium text-cement_500 dark:text-white"
@@ -131,61 +132,63 @@ export default function LocationInput() {
           <Locate size={18} />
         </button>
       </div>
-      <ul className="w-full flex flex-col gap-2">
-        {`${location.city}, ${location.state || location.country}` !==
-          locationInputValue && (
-          <>
-            {!loadingLocationList ? (
-              <>
-                {locationList?.results ? (
-                  <>
-                    {locationList.results.map((l, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-2 items-center justify-start bg-gray-100 dark:bg-gray-700 py-3 px-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 cursor-pointer"
-                        onClick={(e) => {
-                          selectLocation(e, l);
-                        }}
-                      >
-                        <Image
-                          src={`/flags/${l.country_code.toLowerCase()}.svg`}
-                          alt={`${l.country} flag`}
-                          width={0}
-                          height={0}
-                          className="w-6 h-auto"
-                        />
-                        <span className="text-cement_500 dark:text-gray-100 text-sm">
-                          {l.name}
-                          <span className="text-cement_400 dark:text-gray-300 text-sm">
-                            {", " + (l.admin1 || l.admin2 || l.country)}
+      <ScrollArea className="h-max-[calc(8*44px+8*8px)]">
+        <ul className="w-full h-full flex flex-col gap-2 overflow-auto">
+          {`${location.city}, ${location.state || location.country}` !==
+            locationInputValue && (
+            <>
+              {!loadingLocationList ? (
+                <>
+                  {locationList?.results ? (
+                    <>
+                      {locationList.results.map((l, i) => (
+                        <li
+                          key={i}
+                          className="flex gap-2 items-center justify-start bg-gray-100 dark:bg-gray-700 py-3 px-2 rounded-md hover:bg-black/10 dark:hover:bg-white/10 cursor-pointer"
+                          onClick={(e) => {
+                            selectLocation(e, l);
+                          }}
+                        >
+                          <Image
+                            src={`/flags/${l.country_code.toLowerCase()}.svg`}
+                            alt={`${l.country} flag`}
+                            width={0}
+                            height={0}
+                            className="w-6 h-auto"
+                          />
+                          <span className="text-cement_500 dark:text-gray-100 text-sm">
+                            {l.name}
+                            <span className="text-cement_400 dark:text-gray-300 text-sm">
+                              {", " + (l.admin1 || l.admin2 || l.country)}
+                            </span>
                           </span>
-                        </span>
-                      </li>
-                    ))}
-                  </>
-                ) : (
-                  <>
-                    {locationList?.generationtime_ms && (
-                      <div className=" h-10 w-60 flex items-center gap-2">
-                        <span className="text-sm text-cement_400 dark:text-gray-300">
-                          No location found
-                        </span>
-                      </div>
-                    )}
-                  </>
-                )}
-              </>
-            ) : (
-              <div className=" h-10 w-60 flex items-center gap-2">
-                <Loader2 size={18} className="text-cement_400 animate-spin" />
-                <span className="text-sm text-cement_400  dark:text-gray-300">
-                  Getting location...
-                </span>
-              </div>
-            )}
-          </>
-        )}
-      </ul>
+                        </li>
+                      ))}
+                    </>
+                  ) : (
+                    <>
+                      {locationList?.generationtime_ms && (
+                        <div className=" h-10 w-60 flex items-center gap-2">
+                          <span className="text-sm text-cement_400 dark:text-gray-300">
+                            No location found
+                          </span>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </>
+              ) : (
+                <div className=" h-10 w-60 flex items-center gap-2">
+                  <Loader2 size={18} className="text-cement_400 animate-spin" />
+                  <span className="text-sm text-cement_400  dark:text-gray-300">
+                    Getting location...
+                  </span>
+                </div>
+              )}
+            </>
+          )}
+        </ul>
+      </ScrollArea>
     </div>
   );
 }
