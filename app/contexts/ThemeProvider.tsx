@@ -30,6 +30,9 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<Theme>(defaultTheme);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      setTheme(localStorage.getItem(storageKey) as Theme);
+    }
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");
