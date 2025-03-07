@@ -132,8 +132,8 @@ export default function LocationInput() {
           <Locate size={18} />
         </button>
       </div>
-      <ScrollArea className="h-max-[calc(8*44px+8*8px)]">
-        <ul className="w-full h-full flex flex-col gap-2 overflow-auto">
+      <ScrollArea className="h-full md:h-[calc(8*44px+8*8px)]">
+        <ul className="w-full flex flex-col gap-2 overflow-auto">
           {`${location.city}, ${location.state || location.country}` !==
             locationInputValue && (
             <>
