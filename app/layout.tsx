@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inconsolata, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./contexts/ThemeProvider";
+import Adsense from "./components/Adsense";
 
 const geistSans = Inconsolata({
   variable: "--font-inconsolata",
@@ -25,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <Adsense />
+      </head>
       <ThemeProvider defaultTheme="dark" storageKey="ui-theme">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
