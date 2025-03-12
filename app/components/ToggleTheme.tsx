@@ -1,3 +1,4 @@
+"use client";
 import { Eclipse, Sun } from "lucide-react";
 import { flushSync } from "react-dom";
 import { useRef } from "react";
@@ -23,6 +24,25 @@ function ToggleTheme() {
         if (theme === "light") setTheme("dark");
       });
     }).ready;
+
+    const { top, left, width, height } =
+      ref.current?.getBoundingClientRect() || {};
+    const right = window.innerWidth - left;
+    const bottom = window.innerHeight - top;
+    const maxRadius = Math.hypot(Math.max(left, right), Math.max(top, bottom));
+    document.documentElement.animate(
+      {
+        clipPath: [
+          `circle(0px at ${left + width / 2}px ${top + height / 2}px)`,
+          `circle(${maxRadius}px at ${left}px ${top}px)`,
+        ],
+      },
+      {
+        duration: 1500,
+        easing: "ease-in-out",
+        pseudoElement: "::view-transition-new(root)",
+      },
+    );
   }
 
   return (

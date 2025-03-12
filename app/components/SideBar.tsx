@@ -1,4 +1,3 @@
-"use client";
 import LocationInput from "./LocationInput";
 import ToggleTheme from "./ToggleTheme";
 
