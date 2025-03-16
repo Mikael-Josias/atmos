@@ -4,9 +4,8 @@ export default function Adsense() {
   return (
     <Script
       async
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7421226989301606`}
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7421226989301606"
       crossOrigin="anonymous"
-      strategy="afterInteractive"
-    />
+    ></Script>
   );
 }
