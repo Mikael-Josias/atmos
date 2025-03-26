@@ -1,8 +1,8 @@
-import { Toaster } from "@/components/ui/toaster";
-import SideBar from "./components/SideBar";
-import { LocationContextProvider } from "./contexts/LocationContext";
-import { WeatherContextProvider } from "./contexts/WeatherContext";
-import WeatherDashboard from "./components/WeatherDashboard";
+import { Toaster } from "@/components/ui/toaster"
+import SideBar from "./components/SideBar"
+import { LocationContextProvider } from "./contexts/LocationContext"
+import { WeatherContextProvider } from "./contexts/WeatherContext"
+import WeatherDashboard from "./components/WeatherDashboard"
 
 export default function Home() {
   return (
@@ -15,5 +15,5 @@ export default function Home() {
         </main>
       </WeatherContextProvider>
     </LocationContextProvider>
-  );
+  )
 }

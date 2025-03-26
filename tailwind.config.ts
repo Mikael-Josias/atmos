@@ -16,6 +16,8 @@ export default {
         cement_600: '#2e2e2e',
         cement_500: '#4e4e4e',
         cement_400: '#6e6e6e',
+        snow_500: "#f2f2f2",
+        snow_400: "#fafafa",
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
@@ -58,6 +60,9 @@ export default {
       fontFamily: {
         inconsolata: [
           'var(--font-inconsolata)'
+        ],
+        alexandria: [
+          'var(--font-alexandria)'
         ]
       },
       borderRadius: {

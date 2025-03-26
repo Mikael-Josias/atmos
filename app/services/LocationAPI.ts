@@ -1,55 +1,49 @@
-interface ReverseGeocodingResults {
-  name: string;
-  state: string;
-  country: string;
+"use server"
+
+interface GeocodingResults2 {
+  totalResultsCount: number,
+  geonames: {
+    lng: number,
+    countryCode: string,
+    name: string,
+    countryName: string,
+    adminName1: string,
+    lat: number,
+  }[]
+
 }
-export interface GeocodingObject {
-  name: string;
-  latitude: number;
-  longitude: number;
-  country_code: string;
-  country: string;
-  admin1: string;
-  admin2: string;
-}
-export interface GeocodingResults {
-  results?: GeocodingObject[];
-  generationtime_ms: number;
+interface GeocodingResults {
+  lat: number,
+  lon: number,
+  address: {
+    city: string,
+    state: string,
+    country: string,
+    country_code: string,
+  },
 }
 
-const headers = {
-  "X-Api-Key": process.env.NEXT_PUBLIC_GEOLOCATION_KEY as string,
-};
-
-export async function getReverseGeocoding({
-  lat,
-  lon,
-}: {
-  lat: number;
-  lon: number;
-}): Promise<ReverseGeocodingResults[]> {
+export async function getLocationFromCoords(lat: number, lon: number) {
   try {
-    const result = (
-      await fetch(
-        `${process.env.NEXT_PUBLIC_GEOLOCATION_URL}/v1/reversegeocoding?lat=${lat}&lon=${lon}`,
-        { headers },
-      )
-    ).json();
-    return result;
+    const res = (await (await fetch(`${process.env.NEXT_PUBLIC_GEO_API_URL}reverse?key=${process.env.NEXT_PUBLIC_GEO_API_KEY}&lat=${lat}&lon=${lon}&accept-language=pt-BR&format=json&`)).json()) as GeocodingResults
+    return {
+      lat: res.lat,
+      lon: res.lon,
+      city: res.address.city,
+      state: res.address.state,
+      country: res.address.country,
+      country_code: res.address.country_code,
+    }
   } catch (error) {
-    throw new Error("An error ocurred: " + error);
+    return "Desculpe! Não conseguimos achar sua localização."
   }
 }
 
-export async function getGeocoding(city: string): Promise<GeocodingResults> {
+export async function getLocationFromCityName(city: string) {
   try {
-    const result = (
-      await fetch(
-        `${process.env.NEXT_PUBLIC_GEOLOCATION2_URL}/search?name=${city}&language=en&format=json`,
-      )
-    ).json();
-    return result;
+    const res = (await (await fetch(`${process.env.NEXT_PUBLIC_GEONAME_URL}/searchJSON?name_equals=${city}&maxRows=8&featureClass=A&featureCode=ADM2&lang=pt-BR&${process.env.NEXT_PUBLIC_GEONAME_USER}`)).json()) as GeocodingResults2
+    return res
   } catch (error) {
-    throw new Error("An error ocurred: " + error);
+    return "Desculpe! Não conseguimos achar sua localização."
   }
 }
