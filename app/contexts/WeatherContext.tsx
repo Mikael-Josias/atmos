@@ -15,6 +15,7 @@ export interface WeatherHourly {
   wind_speed: number[]
   surface_pressure: number[]
   uv_index: number[]
+  is_day: number[]
 }
 interface WeatherWeekly {
   sunday: WeatherHourly

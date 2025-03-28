@@ -17,6 +17,7 @@ export default function DayCard({ weather }: { weather: WeatherHourly }) {
     if (selectedDay.getDate() !== thisDay.getDate() || selectedDay.getMonth() !== thisDay.getMonth() || selectedDay.getFullYear() !== thisDay.getFullYear()) {
       return false
     }
+    console.log(selectedWeather.weather_code)
     return true
   }
 
