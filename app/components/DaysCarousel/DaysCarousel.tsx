@@ -8,7 +8,7 @@ export default function DaysCarousel() {
   const { weather } = useWeatherContext()
 
   return (
-    <ScrollArea className="bg-snow_400 w-full">
+    <ScrollArea className="bg-snow_400 w-full min-h-14">
       <ScrollBar orientation="horizontal" />
       <div className="flex flex-row w-full bg-snow_400">
         {weather &&

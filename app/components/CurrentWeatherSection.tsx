@@ -2,7 +2,7 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useWeatherContext } from "../contexts/WeatherContext"
 import { WEATHER_CODES, WEATHER_ICONS } from "../utils/utils"
-import { Info, InfoIcon } from "lucide-react"
+import { Info, InfoIcon, Loader2 } from "lucide-react"
 
 export default function CurrentWeatherSection() {
   const { weather, selectedWeather } = useWeatherContext()
@@ -17,13 +17,18 @@ export default function CurrentWeatherSection() {
   return (
     <section className="flex flex-col lg:flex-row gap-6 px-6 mt-4 lg:mt-0 w-full">
       {/* BASIC WEATHER INFO */}
-      <div className="w-full flex gap-6 items-center justify-center lg:pr-3 lg:border-r-[1px] lg:border-r-snow_500 relative">
-        {WEATHER_ICONS.get(selectedWeather?.weather_code[thisHour])}
-        <div className="h-full flex flex-col justify-around">
-          <h2 className="font-alexandria text-2xl font-light text-cement_400">{WEATHER_CODES.get(selectedWeather?.weather_code[thisHour])}</h2>
-          <span className="font-alexandria text-4xl font-medium text-cement_600 block">{selectedWeather?.temperature[thisHour]} ºC</span>
-          <span className="font-alexandria text-2xl font-light text-cement_400 block">{convertToFahrenheit()} ºF</span>
-        </div>
+      <div className="w-full flex gap-6 items-center justify-center lg:pr-3 lg:border-r-[1px] lg:border-r-snow_500 relative min-h-32">
+        {selectedWeather ?
+          <>
+            {WEATHER_ICONS.get(selectedWeather?.weather_code[thisHour])}
+            <div className="h-full flex flex-col justify-around">
+              <h2 className="font-alexandria text-2xl font-light text-cement_400">{WEATHER_CODES.get(selectedWeather?.weather_code[thisHour])}</h2>
+              <span className="font-alexandria text-4xl font-medium text-cement_600 block">{selectedWeather?.temperature[thisHour]} ºC</span>
+              <span className="font-alexandria text-2xl font-light text-cement_400 block">{convertToFahrenheit()} ºF</span>
+            </div></>
+          :
+          <Loader2 className="text-cement_400 animate-spin size-16" />
+        }
 
         {/* TOOLTIP */}
         <TooltipProvider>
@@ -42,30 +47,54 @@ export default function CurrentWeatherSection() {
       <div className="grid grid-cols-3 w-full">
         <div className="flex flex-col items-center justify-center gap-1.5 p-2 hover:bg-snow_400 w-full h-full border-b-[1px] border-r-[1px] border-snow_500">
           <span className="font-alexandria text-sm font-light text-cement_500 text-center">Temp. Aparente</span>
-          <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.apparent_temperature[thisHour]}{" "}{weather?.units.apparent_temperature}</span>
+          {selectedWeather ?
+            <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.apparent_temperature[thisHour]}{" "}{weather?.units.apparent_temperature}</span>
+            :
+            <Loader2 className="size-4 animate-spin text-cement_400" />
+          }
         </div>
         <div className="flex flex-col items-center justify-center gap-1.5 p-2 hover:bg-snow_400 w-full h-full border-b-[1px] border-r-[1px] border-snow_500">
           <span className="font-alexandria text-sm font-light text-cement_500 text-center">Pressão Atm.</span>
-          <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.surface_pressure[thisHour]}{" "}{weather?.units.surface_pressure}</span>
+          {selectedWeather ?
+            <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.surface_pressure[thisHour]}{" "}{weather?.units.surface_pressure}</span>
+            :
+            <Loader2 className="size-4 animate-spin text-cement_400" />
+          }
         </div>
         <div className="flex flex-col items-center justify-center gap-1.5 p-2 hover:bg-snow_400 w-full h-full border-b-[1px] border-snow_500">
           <span className="font-alexandria text-sm font-light text-cement_500 text-center">Dia ou Noite</span>
-          <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.is_day[thisHour] === 1 ? "Dia" : "Noite"}</span>
+          {selectedWeather ?
+            <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.is_day[thisHour] === 1 ? "Dia" : "Noite"}</span>
+            :
+            <Loader2 className="size-4 animate-spin text-cement_400" />
+          }
         </div>
         <div className="flex flex-col items-center justify-center gap-1.5 p-2 hover:bg-snow_400 w-full h-full border-r-[1px] border-snow_500">
           <span className="font-alexandria text-sm font-light text-cement_500 text-center">Umidade Relativa</span>
-          <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.humidity[thisHour]}{" "}{weather?.units.humidity}</span>
+          {selectedWeather ?
+            <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.humidity[thisHour]}{" "}{weather?.units.humidity}</span>
+            :
+            <Loader2 className="size-4 animate-spin text-cement_400" />
+          }
         </div>
         <div className="flex flex-col items-center justify-center gap-1.5 p-2 hover:bg-snow_400 w-full h-full border-r-[1px] border-snow_500">
           <span className="font-alexandria text-sm font-light text-cement_500 text-center">Precipitação</span>
-          <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.precipitation[thisHour]}{" "}{weather?.units.precipitation}</span>
+          {selectedWeather ?
+            <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.precipitation[thisHour]}{" "}{weather?.units.precipitation}</span>
+            :
+            <Loader2 className="size-4 animate-spin text-cement_400" />
+          }
         </div>
         <div className="flex flex-col items-center justify-center gap-1.5 p-2 hover:bg-snow_400 w-full h-full">
           <span className="font-alexandria text-sm font-light text-cement_500 text-center">Vento (10m)</span>
-          <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.wind_speed[thisHour]}{" "}{weather?.units.wind_speed}</span>
+          {selectedWeather ?
+            <span className="font-alexandria text-base font-medium text-cement_600">{selectedWeather?.wind_speed[thisHour]}{" "}{weather?.units.wind_speed}</span>
+            :
+            <Loader2 className="size-4 animate-spin text-cement_400" />
+          }
         </div>
       </div>
-    </section>
+    </section >
   )
 }
 
