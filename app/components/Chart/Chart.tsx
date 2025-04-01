@@ -4,7 +4,7 @@ import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 type chartData = { hour: string, value: number }[]
 
-export default function Chart({ label, color, unit, data }: { label: string, color: string, unit: string, data: chartData }) {
+export default function Chart({ label, color, data }: { label: string, color: string, data: chartData }) {
 
   const chartConfig = {
     value: {

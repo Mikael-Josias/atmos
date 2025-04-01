@@ -4,7 +4,6 @@ import DayCard from "./DayCard"
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 
 export default function DaysCarousel() {
-  const hourNow = new Date().getHours()
   const { weather } = useWeatherContext()
 
   return (

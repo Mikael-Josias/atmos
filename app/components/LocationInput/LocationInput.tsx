@@ -1,13 +1,13 @@
 "use client"
 import { getLocationFromCityName, getLocationFromCoords } from "@/app/services/LocationAPI"
 import { useLocationContext } from "../../contexts/LocationContext"
-import { Loader2, LocateFixed, Star } from "lucide-react"
+import { Loader2, LocateFixed } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/hooks/use-toast"
 import { useEffect, useState } from "react"
 import SaveButton from "./SaveButton"
 import LocationItem from "./LocationItem"
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 export default function LocationInput() {
   const { toast } = useToast()
@@ -75,7 +75,7 @@ export default function LocationInput() {
     }, 500)
 
     return () => clearTimeout(timeoutSearch)
-  }, [search])
+  }, [search, searchLocationByCity, setLoadingLocation])
 
   return (
     <div className="flex flex-col gap-6 h-full">
@@ -105,7 +105,7 @@ export default function LocationInput() {
               </div>
             }
             {!loadingLocation && searchResponse.map((l) =>
-              <LocationItem location={l} key={l.lat} onClick={(e) => selectLocation(l)} />
+              <LocationItem location={l} key={l.lat} onClick={() => selectLocation(l)} />
             )}
           </div>
         </ScrollArea>
@@ -115,7 +115,7 @@ export default function LocationInput() {
       <ScrollArea className="w-full h-full max-h-[33%]">
         <div className="flex flex-col gap-1.5">
           {savedLocations.map((l) =>
-            <LocationItem location={l} key={l.lat} onClick={(e) => selectLocation(l)} />
+            <LocationItem location={l} key={l.lat} onClick={() => selectLocation(l)} />
           )}
         </div>
       </ScrollArea>

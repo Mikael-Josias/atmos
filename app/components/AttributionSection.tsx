@@ -9,5 +9,5 @@ export default function AttributionSection() {
         Weather icons created by Freepik - Flaticon
       </a>
     </section>
-  );
+  )
 }

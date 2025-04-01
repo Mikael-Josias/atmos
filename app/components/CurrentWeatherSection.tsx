@@ -2,7 +2,7 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useWeatherContext } from "../contexts/WeatherContext"
 import { WEATHER_CODES, WEATHER_ICONS } from "../utils/utils"
-import { Info, InfoIcon, Loader2 } from "lucide-react"
+import { Info, Loader2 } from "lucide-react"
 
 export default function CurrentWeatherSection() {
   const { weather, selectedWeather } = useWeatherContext()

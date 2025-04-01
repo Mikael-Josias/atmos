@@ -40,27 +40,27 @@ export default function HourlyWeatherSection() {
       </TabsList>
       <TabsContent value="apparent">
         {selectedWeather && weather &&
-          <Chart unit={weather?.units.apparent_temperature} {...chartConfig.apparent} data={selectedWeather.apparent_temperature.map((a, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: a } })} />
+          <Chart {...chartConfig.apparent} data={selectedWeather.apparent_temperature.map((a, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: a } })} />
         }
       </TabsContent>
       <TabsContent value="humidity">
         {selectedWeather && weather &&
-          <Chart unit={weather?.units.humidity} {...chartConfig.humidity} data={selectedWeather.humidity.map((h, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: h } })} />
+          <Chart {...chartConfig.humidity} data={selectedWeather.humidity.map((h, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: h } })} />
         }
       </TabsContent>
       <TabsContent value="precipitation">
         {selectedWeather && weather &&
-          <Chart unit={weather?.units.precipitation} {...chartConfig.precipitation} data={selectedWeather.precipitation.map((p, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: p } })} />
+          <Chart {...chartConfig.precipitation} data={selectedWeather.precipitation.map((p, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: p } })} />
         }
       </TabsContent>
       <TabsContent value="wind">
         {selectedWeather && weather &&
-          <Chart unit={weather?.units.wind_speed} {...chartConfig.wind} data={selectedWeather.wind_speed.map((w, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: w } })} />
+          <Chart {...chartConfig.wind} data={selectedWeather.wind_speed.map((w, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: w } })} />
         }
       </TabsContent>
       <TabsContent value="uv">
         {selectedWeather && weather &&
-          <Chart unit={weather?.units.uv_index} {...chartConfig.uv} data={selectedWeather.uv_index.map((u, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: u } })} />
+          <Chart {...chartConfig.uv} data={selectedWeather.uv_index.map((u, i) => { return { hour: `${i < 10 ? `0${i}` : i}:00`, value: u } })} />
         }
       </TabsContent>
     </Tabs>

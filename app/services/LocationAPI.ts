@@ -35,6 +35,7 @@ export async function getLocationFromCoords(lat: number, lon: number) {
       country_code: res.address.country_code,
     }
   } catch (error) {
+    console.log(error)
     return "Desculpe! Não conseguimos achar sua localização."
   }
 }
@@ -44,6 +45,7 @@ export async function getLocationFromCityName(city: string) {
     const res = (await (await fetch(`${process.env.NEXT_PUBLIC_GEONAME_URL}/searchJSON?name_equals=${city}&maxRows=8&featureClass=A&featureCode=ADM2&lang=pt-BR&${process.env.NEXT_PUBLIC_GEONAME_USER}`)).json()) as GeocodingResults2
     return res
   } catch (error) {
+    console.log(error)
     return "Desculpe! Não conseguimos achar sua localização."
   }
 }
