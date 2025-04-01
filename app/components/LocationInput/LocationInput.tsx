@@ -75,7 +75,7 @@ export default function LocationInput() {
     }, 500)
 
     return () => clearTimeout(timeoutSearch)
-  }, [search, searchLocationByCity, setLoadingLocation])
+  }, [search])
 
   return (
     <div className="flex flex-col gap-6 h-full">
