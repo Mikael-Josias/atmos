@@ -1,15 +1,16 @@
 import Sun from "../../public/weather-icons/sun.png"
-import Cloud from "../../public/weather-icons/cloud.png"
 import Cloudy from "../../public/weather-icons/cloudy.png"
-import CloudSun from "../../public/weather-icons/cloud-sun.png"
-import Blizzard from "../../public/weather-icons/blizzard.png"
-import Drizzle from "../../public/weather-icons/drizzle.png"
-import Snowfall from "../../public/weather-icons/snow.png"
-import Storm from "../../public/weather-icons/storm.png"
-import StormHeavy from "../../public/weather-icons/storm-heavy.png"
-import Fog from "../../public/weather-icons/fog.png"
+import Cloud from "../../public/weather-icons/cloud.png"
+import Clouds from "../../public/weather-icons/clouds.png"
+import Foggy from "../../public/weather-icons/foggy.png"
+import RainLight from "../../public/weather-icons/rain-light.png"
+import FreezingRain from "../../public/weather-icons/freezing-rain.png"
 import Rain from "../../public/weather-icons/rain.png"
-import RainHeavy from "../../public/weather-icons/rain-heavy.png"
+import SnowLight from "../../public/weather-icons/snow-light.png"
+import SnowModerate from "../../public/weather-icons/snow-moderate.png"
+import SnowHeavy from "../../public/weather-icons/snow-heavy.png"
+import Hails from "../../public/weather-icons/hail.png"
+import Storm from "../../public/weather-icons/storm.png"
 import Image from "next/image"
 
 export const WEATHER_ICONS_SMALL = new Map()
@@ -20,7 +21,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     1,
     <Image
-      src={CloudSun}
+      src={Cloudy}
       alt="gray cloud with yellow sun"
       className="w-8 h-auto"
       priority
@@ -33,7 +34,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     3,
     <Image
-      src={Cloudy}
+      src={Clouds}
       alt="gray cloud"
       className="w-8 h-auto"
       priority
@@ -41,16 +42,16 @@ export const WEATHER_ICONS_SMALL = new Map()
   )
   .set(
     45,
-    <Image src={Fog} alt="gray fog" className="w-8 h-auto" priority />,
+    <Image src={Foggy} alt="gray fog" className="w-8 h-auto" priority />,
   )
   .set(
     48,
-    <Image src={Fog} alt="gray fog" className="w-8 h-auto" priority />,
+    <Image src={Foggy} alt="gray fog" className="w-8 h-auto" priority />,
   )
   .set(
     51,
     <Image
-      src={Drizzle}
+      src={RainLight}
       alt="light drizzle"
       className="w-8 h-auto"
       priority
@@ -59,7 +60,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     53,
     <Image
-      src={Drizzle}
+      src={RainLight}
       alt="light drizzle"
       className="w-8 h-auto"
       priority
@@ -68,7 +69,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     55,
     <Image
-      src={Drizzle}
+      src={RainLight}
       alt="light drizzle"
       className="w-8 h-auto"
       priority
@@ -77,7 +78,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     56,
     <Image
-      src={Drizzle}
+      src={FreezingRain}
       alt="light drizzle"
       className="w-8 h-auto"
       priority
@@ -86,7 +87,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     57,
     <Image
-      src={Drizzle}
+      src={FreezingRain}
       alt="light drizzle"
       className="w-8 h-auto"
       priority
@@ -95,12 +96,12 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(61, <Image src={Rain} alt="rain" className="w-8 h-auto" priority />)
   .set(63, <Image src={Rain} alt="rain" className="w-8 h-auto" priority />)
   .set(65, <Image src={Rain} alt="rain" className="w-8 h-auto" priority />)
-  .set(66, <Image src={Rain} alt="rain" className="w-8 h-auto" priority />)
-  .set(67, <Image src={Rain} alt="rain" className="w-8 h-auto" priority />)
+  .set(66, <Image src={FreezingRain} alt="rain" className="w-8 h-auto" priority />)
+  .set(67, <Image src={FreezingRain} alt="rain" className="w-8 h-auto" priority />)
   .set(
     71,
     <Image
-      src={Snowfall}
+      src={SnowLight}
       alt="snow fall"
       className="w-8 h-auto"
       priority
@@ -109,7 +110,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     73,
     <Image
-      src={Snowfall}
+      src={SnowModerate}
       alt="snow fall"
       className="w-8 h-auto"
       priority
@@ -118,7 +119,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     75,
     <Image
-      src={Snowfall}
+      src={SnowModerate}
       alt="snow fall"
       className="w-8 h-auto"
       priority
@@ -127,7 +128,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     77,
     <Image
-      src={Blizzard}
+      src={Hails}
       alt="snow shower"
       className="w-8 h-auto"
       priority
@@ -136,7 +137,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     80,
     <Image
-      src={RainHeavy}
+      src={Rain}
       alt="heavy rain"
       className="w-8 h-auto"
       priority
@@ -145,7 +146,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     81,
     <Image
-      src={RainHeavy}
+      src={Rain}
       alt="heavy rain"
       className="w-8 h-auto"
       priority
@@ -154,7 +155,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     82,
     <Image
-      src={RainHeavy}
+      src={Rain}
       alt="heavy rain"
       className="w-8 h-auto"
       priority
@@ -163,7 +164,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     85,
     <Image
-      src={Blizzard}
+      src={SnowModerate}
       alt="snow shower"
       className="w-8 h-auto"
       priority
@@ -172,7 +173,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     86,
     <Image
-      src={Blizzard}
+      src={SnowHeavy}
       alt="snow shower"
       className="w-8 h-auto"
       priority
@@ -190,7 +191,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     96,
     <Image
-      src={StormHeavy}
+      src={Storm}
       alt="storm with lightning"
       className="w-8 h-auto"
       priority
@@ -199,7 +200,7 @@ export const WEATHER_ICONS_SMALL = new Map()
   .set(
     99,
     <Image
-      src={StormHeavy}
+      src={Storm}
       alt="storm with lightning"
       className="w-8 h-auto"
       priority
@@ -214,7 +215,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     1,
     <Image
-      src={CloudSun}
+      src={Cloudy}
       alt="gray cloud with yellow sun"
       className="w-20 md:w-32 h-auto"
       priority
@@ -227,7 +228,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     3,
     <Image
-      src={Cloudy}
+      src={Clouds}
       alt="gray cloud"
       className="w-20 md:w-32 h-auto"
       priority
@@ -235,16 +236,16 @@ export const WEATHER_ICONS = new Map()
   )
   .set(
     45,
-    <Image src={Fog} alt="gray fog" className="w-20 md:w-32 h-auto" priority />,
+    <Image src={Foggy} alt="gray fog" className="w-20 md:w-32 h-auto" priority />,
   )
   .set(
     48,
-    <Image src={Fog} alt="gray fog" className="w-20 md:w-32 h-auto" priority />,
+    <Image src={Foggy} alt="gray fog" className="w-20 md:w-32 h-auto" priority />,
   )
   .set(
     51,
     <Image
-      src={Drizzle}
+      src={RainLight}
       alt="light drizzle"
       className="w-20 md:w-32 h-auto"
       priority
@@ -253,7 +254,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     53,
     <Image
-      src={Drizzle}
+      src={RainLight}
       alt="light drizzle"
       className="w-20 md:w-32 h-auto"
       priority
@@ -262,7 +263,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     55,
     <Image
-      src={Drizzle}
+      src={RainLight}
       alt="light drizzle"
       className="w-20 md:w-32 h-auto"
       priority
@@ -271,7 +272,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     56,
     <Image
-      src={Drizzle}
+      src={FreezingRain}
       alt="light drizzle"
       className="w-20 md:w-32 h-auto"
       priority
@@ -280,7 +281,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     57,
     <Image
-      src={Drizzle}
+      src={FreezingRain}
       alt="light drizzle"
       className="w-20 md:w-32 h-auto"
       priority
@@ -289,12 +290,12 @@ export const WEATHER_ICONS = new Map()
   .set(61, <Image src={Rain} alt="rain" className="w-20 md:w-32 h-auto" priority />)
   .set(63, <Image src={Rain} alt="rain" className="w-20 md:w-32 h-auto" priority />)
   .set(65, <Image src={Rain} alt="rain" className="w-20 md:w-32 h-auto" priority />)
-  .set(66, <Image src={Rain} alt="rain" className="w-20 md:w-32 h-auto" priority />)
-  .set(67, <Image src={Rain} alt="rain" className="w-20 md:w-32 h-auto" priority />)
+  .set(66, <Image src={FreezingRain} alt="rain" className="w-20 md:w-32 h-auto" priority />)
+  .set(67, <Image src={FreezingRain} alt="rain" className="w-20 md:w-32 h-auto" priority />)
   .set(
     71,
     <Image
-      src={Snowfall}
+      src={SnowLight}
       alt="snow fall"
       className="w-20 md:w-32 h-auto"
       priority
@@ -303,7 +304,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     73,
     <Image
-      src={Snowfall}
+      src={SnowModerate}
       alt="snow fall"
       className="w-20 md:w-32 h-auto"
       priority
@@ -312,7 +313,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     75,
     <Image
-      src={Snowfall}
+      src={SnowHeavy}
       alt="snow fall"
       className="w-20 md:w-32 h-auto"
       priority
@@ -321,7 +322,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     77,
     <Image
-      src={Blizzard}
+      src={Hails}
       alt="snow shower"
       className="w-20 md:w-32 h-auto"
       priority
@@ -330,7 +331,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     80,
     <Image
-      src={RainHeavy}
+      src={Rain}
       alt="heavy rain"
       className="w-20 md:w-32 h-auto"
       priority
@@ -339,7 +340,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     81,
     <Image
-      src={RainHeavy}
+      src={Rain}
       alt="heavy rain"
       className="w-20 md:w-32 h-auto"
       priority
@@ -348,7 +349,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     82,
     <Image
-      src={RainHeavy}
+      src={Rain}
       alt="heavy rain"
       className="w-20 md:w-32 h-auto"
       priority
@@ -357,7 +358,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     85,
     <Image
-      src={Blizzard}
+      src={SnowModerate}
       alt="snow shower"
       className="w-20 md:w-32 h-auto"
       priority
@@ -366,7 +367,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     86,
     <Image
-      src={Blizzard}
+      src={SnowHeavy}
       alt="snow shower"
       className="w-20 md:w-32 h-auto"
       priority
@@ -384,7 +385,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     96,
     <Image
-      src={StormHeavy}
+      src={Storm}
       alt="storm with lightning"
       className="w-20 md:w-32 h-auto"
       priority
@@ -393,7 +394,7 @@ export const WEATHER_ICONS = new Map()
   .set(
     99,
     <Image
-      src={StormHeavy}
+      src={Storm}
       alt="storm with lightning"
       className="w-20 md:w-32 h-auto"
       priority
@@ -408,7 +409,7 @@ export const WEATHER_CODES = new Map()
   .set(45, "Névoa")
   .set(48, "Névoa de Geada")
   .set(51, "Chuvisco Leve")
-  .set(53, "Chivisco Moderado")
+  .set(53, "Chuvisco Moderado")
   .set(55, "Chuvisco Intenso")
   .set(56, "Chuvisco Leve e Gelado")
   .set(57, "Chuvisco Intenso e Gelado")

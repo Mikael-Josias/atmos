@@ -1,13 +1,7 @@
 export default function AttributionSection() {
   return (
-    <section className="flex justify-center lg:justify-end p-3 bg-white dark:bg-gray-600 rounded-xl shadow">
-      <a
-        href="https://www.flaticon.com/free-icons/Weather"
-        title="Weather icons"
-        className="text-sm text-cement_400 dark:text-gray-300"
-      >
-        Weather icons created by Freepik - Flaticon
-      </a>
+    <section className="flex justify-center md:justify-end p-6">
+      <a href="https://www.flaticon.com/free-icons/rainy-night" title="rainy-night icons" className="font-alexandria text-sm font-light text-cement_400">Rainy-night icons created by apien - Flaticon</a>
     </section>
   )
 }
